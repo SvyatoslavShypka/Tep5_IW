@@ -5,6 +5,7 @@
 class CSellData {
 
 private:
+
 	string dataType;
 
 public:
