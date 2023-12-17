@@ -48,6 +48,7 @@ template <typename T> CMySmartPointer<T>::~CMySmartPointer()
 		delete pc_pointer;
 		delete pc_counter;
 	}//if (pc_counter->iDec())
+
 }//~CMySmartPointer()
 
 template <typename T> CMySmartPointer<T>& CMySmartPointer<T>::operator=(const CMySmartPointer& pcOther)
