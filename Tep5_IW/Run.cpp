@@ -15,6 +15,7 @@ int main() {
 
 	int* x;
 	x = new int();
+
 	int* y;
 	y = new int();
 	CMySmartPointer<int> pointer1(x);
