@@ -5,11 +5,4 @@
 
 using namespace std;
 
-int main() {
-
-	string x;
-	CMySmartPointer<int>* pointer1;
-
-
-	return 0;
-}
+//CMySmartPointer<int>::CMySmartPointer(int* x) {};

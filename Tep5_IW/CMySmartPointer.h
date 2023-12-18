@@ -16,6 +16,7 @@ private:
 template <typename T> class CMySmartPointer
 {
 public:
+	//CMySmartPointer() {};
 	CMySmartPointer(T* pcPointer);
 	CMySmartPointer(const CMySmartPointer& pcOther);
 	~CMySmartPointer();
@@ -26,6 +27,10 @@ private:
 	CRefCounter* pc_counter;
 	T* pc_pointer;
 };//class CMySmartPointer
+
+CMySmartPointer<int>::CMySmartPointer(int* pcPointer) {
+
+};
 
 template <typename T> CMySmartPointer<T>::CMySmartPointer(T* pcPointer)
 {
