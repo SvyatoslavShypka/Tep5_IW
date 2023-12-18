@@ -39,6 +39,8 @@ template <typename T> CMySmartPointer<T>::CMySmartPointer(T* pcPointer)
 	pc_pointer = pcPointer;
 	pc_counter = new CRefCounter();
 	pc_counter->iAdd();
+	cout << "New object " << this << " was created" << endl;
+
 }//CMySmartPointer(T* pcPointer)
 
 template <typename T> CMySmartPointer<T>::CMySmartPointer(const CMySmartPointer& pcOther)
@@ -46,6 +48,7 @@ template <typename T> CMySmartPointer<T>::CMySmartPointer(const CMySmartPointer&
 	pc_pointer = pcOther.pc_pointer;
 	pc_counter = pcOther.pc_counter;
 	pc_counter->iAdd();
+	cout << "New copy pointer on " << this << " was created" << endl;
 }//CMySmartPointer(const CMySmartPointer& pcOther)
 
 template <typename T> CMySmartPointer<T>::~CMySmartPointer()
