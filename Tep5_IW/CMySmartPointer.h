@@ -1,10 +1,12 @@
+#include <iostream>
+
 using namespace std;
 
 class CRefCounter
 {
 public:
 	CRefCounter() {
-		iAdd();
+		//iAdd();
 	}
 	int iAdd() { return(++i_count); }
 	int iDec() { return(--i_count); };
@@ -20,23 +22,23 @@ public:
 	CMySmartPointer(T* pcPointer);
 	CMySmartPointer(const CMySmartPointer& pcOther);
 	~CMySmartPointer();
-	T& operator*() { return(*pc_pointer) };
-	T* operator->() { return(pc_pointer) };
+	T& operator*() { return(*pc_pointer); };
+	T* operator->() { return(pc_pointer); };
 	CMySmartPointer& operator=(const CMySmartPointer& pcOther);
 private:
 	CRefCounter* pc_counter;
 	T* pc_pointer;
 };//class CMySmartPointer
 
-CMySmartPointer<int>::CMySmartPointer(int* pcPointer) {
-
-};
+//CMySmartPointer<int>::CMySmartPointer(int* pcPointer) {
+//	cout << "int constructor" << endl;
+//};
 
 template <typename T> CMySmartPointer<T>::CMySmartPointer(T* pcPointer)
 {
 	pc_pointer = pcPointer;
 	pc_counter = new CRefCounter();
-	//pc_counter->iAdd();
+	pc_counter->iAdd();
 }//CMySmartPointer(T* pcPointer)
 
 template <typename T> CMySmartPointer<T>::CMySmartPointer(const CMySmartPointer& pcOther)
@@ -48,8 +50,10 @@ template <typename T> CMySmartPointer<T>::CMySmartPointer(const CMySmartPointer&
 
 template <typename T> CMySmartPointer<T>::~CMySmartPointer()
 {
+	cout << "Delete constructor performed" << endl;
 	if (pc_counter->iDec() == 0)
 	{
+		cout << "Delete pointer: " << pc_pointer << " performed" << endl;
 		delete pc_pointer;
 		delete pc_counter;
 	}//if (pc_counter->iDec())
