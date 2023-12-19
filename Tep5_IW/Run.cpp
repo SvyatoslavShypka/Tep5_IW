@@ -21,10 +21,10 @@ int main() {
 	CMySmartPointer<int> pointer1(x);
 	CMySmartPointer<int>* pointerDynamic = new CMySmartPointer<int>(y);
 
-	//pointerDynamic = new CMySmartPointer<int>(x);
+	CMySmartPointer<int> pointer2 = pointer1;
+
 	test(pointer1);
 
-	//delete &copyPointer1;
 	delete pointerDynamic;
 
 	return 0;
