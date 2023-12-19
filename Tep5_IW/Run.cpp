@@ -19,7 +19,6 @@ int main() {
 	int* y;
 	y = new int();
 	CMySmartPointer<int> pointer1(x);
-
 	CMySmartPointer<int>* pointerDynamic = new CMySmartPointer<int>(y);
 
 	//pointerDynamic = new CMySmartPointer<int>(x);
